@@ -1,0 +1,381 @@
+$accent-color: #66C05D;
+$basic-color: #fff;
+$light-grey: #C4C4C4;
+$footer-text: #828282;
+$grey: #EFEFEF;
+$menu-text: #333333;
+$link-color: #000;
+
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+); 
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), local('Roboto-Regular'), url('.../fonts/Roboto.woff2') format('woff2'), url('.../fonts/Roboto.woff') format('woff'), url('.../fonts/Roboto.woff') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Medium'), local('Roboto-Medium'), url('.../fonts/Robotomedium.woff2') format('woff2'), url('.../fonts/Robotomedium.woff') format('woff'), url('.../fonts/Robotomedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Bold'), local('Roboto-Bold'), url('.../fonts/Robotobold.woff2') format('woff2'), url('.../fonts/Robotobold.woff') format('woff'), url('.../fonts/Robotobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flexSpaceBetween() {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flexAlignCenter() {
+    display: flex;
+	align-items: center;
+}
+
+body {
+    font-weight: weight(regular);
+}
+
+.container {
+	width: 1100px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: weight(regular);
+	padding: 0;
+	letter-spacing: 0em;
+	margin: 0 auto;
+	font-size: 14px;
+}
+
+div, p, form, input, a, span, button {
+	box-sizing: border-box;
+}
+
+p {
+	margin: 0;
+}
+
+ul, li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3 {
+	font-weight: weight(bold);
+    margin: 0;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+input, input:hover, input:focus, input:active,
+button, button:hover, button:focus, button:active {
+	outline: none;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+
+    &:focus {
+	    box-shadow: none;
+    }
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+}
+
+.btn {
+    border-color: $accent-color;
+    border: 2px solid;
+	border-radius: 28.96px;
+    color: $basic-color;
+}
+
+.header {
+	text-align: -webkit-center;
+}
+
+.nav {
+    background-color: $grey;
+}
+
+.nav-menu {
+    @include flexCenter();
+}
+
+.menu {
+	margin-top: 20px;
+	margin-bottom: 18px;
+	display: flex;
+
+    &__item a {
+	margin-right: 32px;
+    }
+
+    &__item a, &__item a:hover, &__item a:active {
+        color: $menu-text;
+    }
+}
+
+.border {
+    border-bottom: 1px solid;
+    border-color: $grey;
+}
+
+.info {
+    @include flexSpaceBetween;
+    padding-top: 20px;
+	padding-bottom: 19px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+
+    &__text {
+        text-transform: uppercase;
+        color: $accent-color;
+        font-weight: weight(bold);
+        font-size: 36px;
+        margin-left: 22px;
+    }
+}
+
+.feedback {
+	@include flexAlignCenter();
+
+    &__phone {
+        color: $link-color;
+    }
+
+    &__btn {
+        padding: 13px 25px;
+        margin-left: 43px;
+        background-color: $basic-color;
+        border-color: $accent-color;
+        color: $accent-color;
+    }
+}
+
+.category {
+    @include flexCenter();
+	margin-top: 32px;
+	margin-bottom: 30px;
+
+    &__item a {
+        margin-right: 43px;
+        color: $link-color;
+    }
+}
+
+.main {
+	background: url(../img/Rectangle2.svg) no-repeat top center;
+}
+
+.offer {
+    display: flex;
+    justify-content: space-around;
+	padding-top: 200px;
+	padding-bottom: 180px;
+	color: $basic-color;
+
+    &-info__text {
+        padding-top: 43px;
+	    padding-bottom: 47px;
+    }
+
+    &-info__btn {
+        border-color: $basic-color;
+	    padding: 13px 45px;
+	    background-color: $accent-color;
+    }
+}
+
+.special {
+    @include flexCenter();
+	padding-top: 84px;
+	background-color: $grey;
+	align-items: center;
+
+    &-offers {
+        @include flexSpaceBetween();
+    }
+
+    &-product {
+        @include flexSpaceBetween();
+        margin-bottom: 100px;
+        margin-top: 40px;
+    }
+}
+
+.product {
+	padding-top: 25px;
+    padding-bottom: 25px;
+	background-color: $basic-color;
+	text-align: center;
+    margin-right: 30px;
+
+    &-end {
+        margin-right: 0px;
+    }
+
+    &__description {
+        margin-top: 23px;
+	    margin-bottom: 24px;
+    }
+
+    &__cost {
+    font-weight: weight(medium);
+	margin-bottom: 20px;
+	font-size: 21px;
+    }
+
+    &__btn {
+       padding: 9px 38px;
+	    border-color: $accent-color;
+	    background-color: $accent-color;
+	    color: $basic-color; 
+    }
+}
+
+.additional-info {
+	@include flexCenter();
+	background-color: $grey;
+}
+
+.additional {
+	display: flex;
+    padding-bottom: 133px;
+}
+
+.subscription {
+    @include flexAlignCenter();
+	padding: 0px 40px 0px 45px;
+	background-color: $accent-color;
+}
+
+.bonus {
+	margin-right: 50px;
+    color: $basic-color;
+    
+    &__text {
+        margin-top: 30px;
+    }
+
+    & input {
+        margin-top: 32px;
+        border: none;
+        border-radius: 28.96px;
+        color: $light-grey;
+        padding: 11px 45px 11px 26px;
+        background-color: $basic-color;
+    }
+}
+
+.address {
+    margin-left: 30px;
+	padding: 42px 320px 35px 45px;
+	background-color: $accent-color;
+	color: $basic-color;
+	align-items: center;
+
+    &__text {
+        margin-top: 30px;
+	    margin-bottom: 32px;
+    }
+
+    &__btn {
+        border-color: $basic-color;
+        background-color: $accent-color;
+        padding: 12px 28px 11px 27px;
+    }
+}
+
+.footer {
+	@include flexCenter();
+
+    &-nav {
+        @include flexSpaceBetween();
+        align-items: center;
+	    padding-top: 57px;
+	    padding-bottom: 55px;
+    }
+}
+
+.social {
+	@include flexAlignCenter();
+
+    &__item {
+        border-radius: 28.96px;
+	    border: 2px solid;
+	    border-color: $accent-color;
+	    margin-right: 20px;
+
+        & img {
+            display: block;
+        }
+
+        &__youtube {
+            padding: 13px 9px;
+        }
+
+        &__vk {
+            padding: 13px 6px;
+        }
+
+        &__facebook {
+            padding: 11px 15px;
+        }
+
+        &__instagram {
+            padding: 10px;
+        }
+    }
+}
+
+.security {
+	@include flexSpaceBetween();
+	font-size: 12px;
+	color: $footer-text;
+	padding-bottom: 26px;
+
+    & a, & a:hover, a:active {
+        color: $footer-text;
+    }
+}
